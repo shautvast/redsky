@@ -1,14 +1,22 @@
 body {
-    background: #ff8f00;
+    background: black;
+    /*background: #ff0000;*/
     overflow: hidden;
 }
 
 #sky {
-    /*background: red;*/
-    background: #ff8f00;
+    background: black;
+    /*background: #ff8f00;*/
+    /*background: black;*/
 }
 
 .cloud {
     position: absolute;
     background-size: 25px;
+}
+
+a{
+    position: absolute;
+    right: 0;
+    color: red;
 }

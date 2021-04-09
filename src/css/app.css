@@ -1,0 +1,14 @@
+body {
+    background: #ff8f00;
+    overflow: hidden;
+}
+
+#sky {
+    /*background: red;*/
+    background: #ff8f00;
+}
+
+.cloud {
+    position: absolute;
+    background-size: 25px;
+}

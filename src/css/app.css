@@ -5,6 +5,8 @@ body {
 }
 
 #sky {
+    width: 100vw;
+    height: 100vh;
     background: black;
     /*background: #ff8f00;*/
     /*background: black;*/
@@ -16,12 +18,9 @@ body {
 }
 
 a{
-    position: absolute;
+    position: fixed;
     right: 0;
+    bottom: 0;
     color: red;
-}
-
-div{
-    width: 100vw;
-    height: 100vh;
+    font-family: pt sans, Helvetica, Arial, sans-serif;
 }

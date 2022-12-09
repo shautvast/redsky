@@ -112,7 +112,7 @@ import '../css/app.css';
         }
         // blue
         if (i % 4 === 1) {
-            return `radial-gradient(circle ${size / 2}px, rgba(${50+shift}, 0, ${200+shift}, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
+            return `radial-gradient(circle ${size / 2}px, rgba(${100+shift}, 0, ${200+shift}, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
         }
         // purple
         if (i % 4 === 2) {

@@ -108,7 +108,7 @@ import '../css/app.css';
         const shift = Math.random() * 80 - 40;
         // yellow
         if (i % 3 === 0) {
-            return `radial-gradient(circle ${size / 2}px, rgba(${255-shift}, ${180+shift}, 0, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
+            return `radial-gradient(circle ${size / 2}px, rgba(${200-shift}, ${150+shift/3}, 0, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
         }
         // blue
         if (i % 4 === 1) {

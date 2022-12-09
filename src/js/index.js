@@ -32,13 +32,17 @@ import '../css/app.css';
     let create_clouds = function () {
         for (let i = 0; i < num_clouds; i++) {
             let newCloud = document.createElement("div");
-            newCloud.setAttribute("id", `cloud-${i}`);
+            newCloud.setAttribute("id", `${i}`);
             newCloud.setAttribute("class", "cloud");
             const size = 200 + Math.random() * max_cloud_size;
             newCloud.style.width = `${size}px`;
             newCloud.style.height = `${size}px`;
-            let green_shift = Math.random() * 250;
-            newCloud.style.background = `radial-gradient(circle ${size / 2}px, rgba(255, ${255 - green_shift}, 0, ${Math.random()}), rgba(0, 0, 0, 0.0)) no-repeat`;
+            // let green_shift = Math.random() * 50 - 25;
+            // let red_shift = Math.random() * 50 - 25;
+            // newCloud.style.background = `radial-gradient(circle ${size / 2}px, rgba(255, ${255 - green_shift}, 0, ${Math.random()}), rgba(0, 0, 0, 0.0)) no-repeat`;
+            // orange
+            newCloud.style.background = create_gradient(size, i);
+
             newCloud.setAttribute("size", `${size}`);
             sky.appendChild(newCloud);
         }
@@ -66,9 +70,9 @@ import '../css/app.css';
             let cloud = get_cloud(cloud_index);
             let x = parseInt(cloud.style.left), y = parseInt(cloud.style.top);
 
-            x += (Math.random()-Math.random()) * max_speed_x;
-            y += (Math.random()-Math.random()) * max_speed_y;
-            if ((x > width && y > height) || (x < -max_cloud_size && y< -max_cloud_size)) {
+            x += (Math.random() - Math.random()) * max_speed_x;
+            y += (Math.random() - Math.random()) * max_speed_y;
+            if ((x > width && y > height) || (x < -max_cloud_size && y < -max_cloud_size)) {
                 cloud_counter += 1;
                 if (cloud_counter > (num_clouds / num_clusters)) {
                     cluster_size = Math.random() * max_cloud_size;
@@ -86,8 +90,11 @@ import '../css/app.css';
                 cloud.style.width = `${size}px`;
                 cloud.style.height = `${size}px`;
                 cloud.setAttribute("size", `${size}`);
-                let green_shift = Math.random() * 250;
-                cloud.style.background = `radial-gradient(circle ${size / 2}px, rgba(255, ${255 - green_shift}, 0, ${Math.random()}), rgba(0, 0, 0, 0.0)) no-repeat`;
+                // let green_shift = Math.random() * 250;
+                //create radial gradient from orange to purple
+
+                cloud.style.background = create_gradient(size, cloud.id);
+
             } else {
                 cloud.style.transition = "left 10s, top 10s";
                 cloud.style.left = `${x}px`;
@@ -97,9 +104,29 @@ import '../css/app.css';
         requestAnimationFrame(step);
     };
 
+    let create_gradient = function (size, i) {
+        const shift = Math.random() * 80 - 40;
+        // yellow
+        if (i % 3 === 0) {
+            return `radial-gradient(circle ${size / 2}px, rgba(${255-shift}, ${180+shift}, 0, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
+        }
+        // blue
+        if (i % 4 === 1) {
+            return `radial-gradient(circle ${size / 2}px, rgba(${50+shift}, 0, ${200+shift}, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
+        }
+        // purple
+        if (i % 4 === 2) {
+            return `radial-gradient(circle ${size / 2}px, rgba(${61+shift}, 1, ${88+shift}, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
+        }
+        // orange
+        if (i % 4 === 3) {
+            return `radial-gradient(circle ${size / 2}px, rgba(${200+shift}, ${80+shift}, 1, 1.0), rgba(0, 0, 0, 0.0)) no-repeat`;
+        }
+    }
+
 
     let get_cloud = function (index) {
-        return document.getElementById(`cloud-${index}`);
+        return document.getElementById(`${index}`);
     }
 
     create_clouds();

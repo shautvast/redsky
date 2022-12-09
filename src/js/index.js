@@ -3,8 +3,8 @@ import '../css/app.css';
 (function () {
     let width = window.innerWidth,
         height = window.innerHeight;
-    const num_clouds = 100;
-    let size_factor = Math.random() * 1000 + 4500,
+    const num_clouds = 200;
+    let size_factor = Math.random() * 1000 + 1500,
         max_cloud_size = (width * height) / size_factor,
         max_speed_x = 50,
         max_speed_y = 30,

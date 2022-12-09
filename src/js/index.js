@@ -52,7 +52,7 @@ import '../css/app.css';
         let num_clouds_in_cluster = (Math.floor(num_clouds / num_clusters));
         for (let i = 0; i < num_clouds; i++) {
             if (i % num_clouds_in_cluster === 0) {
-                cluster_x = 100 + Math.random() * width;
+                cluster_x = 200 + Math.random() * width;
                 cluster_y = 100 + Math.random() * height;
                 cluster_size = Math.random() * 150;
             }
